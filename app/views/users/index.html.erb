@@ -1,0 +1,21 @@
+<%= render 'layouts/userinfo', user: @user %>
+
+<h1>Users</h1>
+<table>
+  <thead>
+    <tr>
+      <th>image</th>
+      <th>name</th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+      <tr>
+        <td><%= attachment__image_tag user, :profile_img.id %></td>
+        <tb><%= user.name %></tb>
+        <tb><%= link_to "Show", user_path(user.id) %></tb>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
