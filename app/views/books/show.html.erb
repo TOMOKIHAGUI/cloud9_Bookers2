@@ -1,0 +1,9 @@
+<p class="notice"><%= notice %></p>
+
+<%= attachment_image_tag @user, :profile_image_id %>
+<p><strong>Title:</strong><%= @book.title %></p>
+<P><strong>Body</strong><%= @book.body %></P>
+<% if @book.user == current_user %>
+  <%= link_to 'Edit', edit_book_path %>
+  <%= link_to 'Destroy', destroy_book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
+<% end %>  
