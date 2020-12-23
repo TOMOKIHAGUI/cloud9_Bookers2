@@ -1,9 +1,21 @@
+<%= render 'layouts/sidebar', user: @user, book: @newbook %>
+
 <p class="notice"><%= notice %></p>
 
-<%= attachment_image_tag @user, :profile_image_id %>
-<p><strong>Title:</strong><%= @book.title %></p>
-<P><strong>Body</strong><%= @book.body %></P>
-<% if @book.user == current_user %>
-  <%= link_to 'Edit', edit_book_path %>
-  <%= link_to 'Destroy', destroy_book_path(book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %>
-<% end %>  
+<h2>Book detail</h2>
+<table>
+  <tbody>
+    <tr>
+      <td><%= link_to user_path(@user.id) do %>
+            <%= attachment_image_tag @user, :profile_image, format: 'jpeg', fallback: "no_image.jpg", size: "40x40" %></br>
+            <%= @user.name %>
+          <% end %></td>
+      <td><%= @book.title %></td>
+      <td><%= @book.body %></td>
+      <% if @book.user == current_user %>
+        <td><%= link_to 'Edit', edit_book_path(@book.id) %></td.>
+        <td><%= link_to 'Destroy', book_path(@book.id), method: :delete, "data-confirm" => "本当に削除しますか？" %></td>
+      <% end %>
+    </tr>
+  </tbody>
+</table>
