@@ -1,0 +1,10 @@
+  <% if book.errors.any? %>
+    <div class = "alerts">
+      <h2>入力内容にエラーが<%= book.errors.count %>件あります。</h2>
+      <ul>
+        <% book.errors.full_messages.each do |message| %>
+          <li>error <%= message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
