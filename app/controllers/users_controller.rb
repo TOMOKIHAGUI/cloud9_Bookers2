@@ -14,7 +14,7 @@ class UsersController < ApplicationController
     if @user.update(user_params)
        redirect_to user_path(@user.id), notice: 'You have updated userinfomation successfully.'
     else
-      render :edit
+      render "edit"
     end
   end
 
@@ -33,7 +33,7 @@ class UsersController < ApplicationController
   # before_action
   def correct_user
     @user = User.find(params[:id])
-    redirect_to root_url if current_user != @user
+    redirect_to user_path(current_user.id) if current_user != @user
   end
 
 end

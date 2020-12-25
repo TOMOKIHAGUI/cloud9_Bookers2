@@ -2,16 +2,8 @@
   <div class= "row">
     <div class= "col-sm-12 col-md-8 col-lg-5 px-5 px-sm-0 mx-auto">
       <h2>User info</h2>
-      <% if @user.errors.any? %>
-        <div class = "alerts">
-          <h2>入力内容にエラーが<%= @user.errors.count %>件あります。</h2>
-          <ul>
-            <% @user.errors.full_messages.each do |message| %>
-              <li>error <%= message %></li>
-            <% end %>
-          </ul>
-        </div>
-      <% end %>
+      
+      <%= render 'layouts/error', book: @user %>
 
       <%= form_with model: @user, url:"/users/#{@user.id}",local:true do |f| %>
         <div class="form-group">
