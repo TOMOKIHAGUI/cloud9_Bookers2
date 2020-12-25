@@ -13,14 +13,14 @@
             <% end %>
           </td>
           <td>
-            <%= link_to book_path(@books.id) do %>
-              <%= @books.title %>
+            <%= link_to book_path(@any_book.id) do %>
+              <%= @any_book.title %>
             <% end %>
           </td>
-          <td><%= @books.body %></td>
-          <% if @books.user == current_user %>
-            <td><%= link_to 'Edit', edit_book_path(@books.id), class:"btn btn-sm btn-success" %></td.>
-            <td><%= link_to 'Destroy', book_path(@books.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-sm btn-danger" %></td>
+          <td><%= @any_book.body %></td>
+          <% if @any_book.user == current_user %>
+            <td><%= link_to 'Edit', edit_book_path(@any_book.id), class:"btn btn-sm btn-success" %></td.>
+            <td><%= link_to 'Destroy', book_path(@any_book.id), method: :delete, "data-confirm" => "本当に削除しますか？", class:"btn btn-sm btn-danger" %></td>
           <% end %>
         </tr>
       </tbody>
