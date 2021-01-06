@@ -23,9 +23,9 @@
   </table>
   <% unless user == current_user %>
     <% if current_user.following?(user) %>
-      <div><%= link_to 'フォロー外す', unfollow_path(user.id), method: :DELETE %></div>
+      <%= link_to 'フォロー外す', unfollow_path(user.id), method: :DELETE %>
     <% else %>
-      <div><%= link_to 'フォローする', follow_path(user.id), method: :POST %></div>
+      <%= link_to 'フォローする', follow_path(user.id), method: :POST %>
     <% end %>
   <% else %>
     <div class="row">
