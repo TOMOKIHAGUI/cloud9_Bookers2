@@ -1,0 +1,6 @@
+<h2>検索結果</h2>
+<% if @user_or_book == "1" %>
+  <%= render 'users/users', users: @users %>
+<% elsif @user_or_book == "2" %>
+  <%= render 'books/books', books: @books %>
+<% end %>
