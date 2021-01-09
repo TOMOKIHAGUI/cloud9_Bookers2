@@ -5,7 +5,7 @@ class BookCommentsController < ApplicationController
     @comment = current_user.book_comments.new(book_comment_params)
     @comment.book_id = @book.id
       if @comment.save
-        redirect_back(fallback_location: root_path)
+        render :comment
       else
         @user = @book.user
         render 'books/show'
@@ -16,13 +16,13 @@ class BookCommentsController < ApplicationController
     @book = Book.find(params[:book_id])
     comment = @book.book_comments.find(params[:id])
     comment.destroy
-    redirect_to request.referer
+    render :comment
   end
 
   private
 
   def book_comment_params
-    params.require(:book_comment).permit(:comment)
+    params.require(:book_comment).permit(:comment, :book_id, :user_id)
   end
 
 end

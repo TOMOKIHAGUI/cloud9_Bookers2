@@ -1,0 +1,9 @@
+<% if book.favorited_by?(current_user) %>
+  <p><%= link_to book_favorites_path(book), method: :delete, id: :"favorite-btn-#{book.id}", remote: true do %>
+       <i class="fas fa-heart heart_red"></i><%= book.favorites.count %> いいね
+    <% end %></p>
+<% else %>
+  <p><%= link_to book_favorites_path(book), method: :post, id: :"favorite-btn-#{book.id}", remote: true do %>
+       <i class="fas fa-heart heart_blue"></i><%= book.favorites.count %> いいね
+     <% end %></p>
+<% end %>
