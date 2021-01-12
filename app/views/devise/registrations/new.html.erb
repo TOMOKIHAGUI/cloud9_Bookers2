@@ -10,13 +10,18 @@
         </div>
 
         <div class="field">
+          <%= f.label :email %><br />
+          <%= f.text_field :email %>
+        </div>
+
+        <div class="field">
           <%= f.label :postcode, '郵便番号' %><br />
           <%= f.text_field :postcode, autocomplete: 'postcode', class: 'form-control' %>
         </div>
 
         <div class="field">
           <%= f.label :prefecture_name, '都道府県' %><br />
-          <%= f.cllection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください'}, class: 'form-control' %>
+          <%= f.collection_select :prefecture_code, JpPrefecture::Prefecture.all, :code, :name, { prompt: '選択してください'}, class: 'form-control' %>
         </div>
 
         <div class="field">
@@ -34,10 +39,6 @@
           <%= f.text_field :address_building, autocomplete: 'address_building', class: 'form-cntrol' %>
         </div>
 
-        <div class="field">
-          <%= f.label :email %><br />
-          <%= f.email_field :email, autocomplete: "email" %>
-        </div>
 
         <div class="field">
           <%= f.label :password %>
